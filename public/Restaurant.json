@@ -1,0 +1,127 @@
+{
+  "restaurant": {
+    "name": "Urban Spice Restaurant",
+    "location": "Chennai, Tamil Nadu",
+    "contact": "+91 98765 43210"
+  },
+
+  "categories": [
+    { "id": 1, "name": "Starters" },
+    { "id": 2, "name": "Main Course" },
+    { "id": 3, "name": "Beverages" },
+    { "id": 4, "name": "Desserts" }
+  ],
+
+  "menu": [
+    {
+      "id": 101,
+      "name": "Chicken 65",
+      "category_id": 1,
+      "price": 180,
+      "description": "Spicy crispy fried chicken",
+      "available": true
+    },
+    {
+      "id": 102,
+      "name": "Paneer Tikka",
+      "category_id": 1,
+      "price": 160,
+      "description": "Grilled paneer marinated in spices",
+      "available": true
+    },
+    {
+      "id": 201,
+      "name": "Butter Chicken",
+      "category_id": 2,
+      "price": 260,
+      "description": "Creamy tomato-based chicken gravy",
+      "available": true
+    },
+    {
+      "id": 202,
+      "name": "Veg Biryani",
+      "category_id": 2,
+      "price": 180,
+      "description": "Aromatic basmati rice with vegetables",
+      "available": false
+    },
+    {
+      "id": 301,
+      "name": "Fresh Lime Soda",
+      "category_id": 3,
+      "price": 60,
+      "description": "Sweet or salt",
+      "available": true
+    },
+    {
+      "id": 401,
+      "name": "Chocolate Brownie",
+      "category_id": 4,
+      "price": 120,
+      "description": "Warm brownie topped with chocolate sauce",
+      "available": true
+    }
+  ],
+
+  "tables": [
+    { "id": 1, "seats": 2, "status": "available" },
+    { "id": 2, "seats": 4, "status": "occupied" },
+    { "id": 3, "seats": 6, "status": "reserved" },
+    { "id": 4, "seats": 4, "status": "available" }
+  ],
+
+  "orders": [
+    {
+      "order_id": 5001,
+      "table_id": 2,
+      "items": [
+        { "menu_id": 101, "qty": 2 },
+        { "menu_id": 301, "qty": 1 }
+      ],
+      "total": 420,
+      "status": "preparing",
+      "timestamp": "2025-01-12 13:20"
+    },
+    {
+      "order_id": 5002,
+      "table_id": 3,
+      "items": [
+        { "menu_id": 201, "qty": 1 },
+        { "menu_id": 401, "qty": 2 }
+      ],
+      "total": 500,
+      "status": "served",
+      "timestamp": "2025-01-12 13:45"
+    }
+  ],
+
+  "staff": [
+    { "id": 1, "name": "Arun", "role": "Manager" },
+    { "id": 2, "name": "Priya", "role": "Chef" },
+    { "id": 3, "name": "Suresh", "role": "Waiter" }
+  ],
+
+  "inventory": [
+    { "id": 1, "item": "Chicken", "quantity_kg": 12, "low_stock_level": 5 },
+    { "id": 2, "item": "Paneer", "quantity_kg": 5, "low_stock_level": 2 },
+    { "id": 3, "item": "Rice", "quantity_kg": 30, "low_stock_level": 10 },
+    { "id": 4, "item": "Soft Drinks", "quantity_units": 40, "low_stock_level": 10 }
+  ],
+
+  "reservations": [
+    {
+      "id": 9001,
+      "customer_name": "Rahul",
+      "table_id": 3,
+      "time": "2025-01-12 18:00",
+      "status": "confirmed"
+    },
+    {
+      "id": 9002,
+      "customer_name": "Divya",
+      "table_id": 1,
+      "time": "2025-01-12 19:30",
+      "status": "pending"
+    }
+  ]
+}
