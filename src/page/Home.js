@@ -1,85 +1,40 @@
-import { useOutletContext } from "react-router-dom";
-import "../style/Home.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Home = () => {
-    const { data } = useOutletContext();
-    console.log(data);
-    
-    return (
-        <div className="home-container">
-            {/* Hero Section */}
-            <section className="hero-section">
-                <div className="hero-content">
-                    <h1>Welcome to FoodHub</h1>
-                    <p>Your Gateway to Delicious Restaurant Management</p>
-                    <button className="cta-button">Explore Restaurants</button>
-                </div>
-                <div className="hero-image">
-                    <img 
-                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=400&fit=crop" 
-                        alt="Delicious food"
-                        onError={(e) => e.target.src = "https://via.placeholder.com/500x400?text=Restaurant+Food"}
-                    />
-                </div>
-            </section>
-
-            {/* Features Section */}
-            <section className="features-section">
-                <h2>Why Choose FoodHub?</h2>
-                <div className="features-grid">
-                    <div className="feature-card">
-                        <img 
-                            src="https://images.unsplash.com/photo-1556910103-1c02745aefb4?w=300&h=300&fit=crop" 
-                            alt="Easy Management"
-                            onError={(e) => e.target.src = "https://via.placeholder.com/300x300?text=Easy+Management"}
-                        />
-                        <h3>Easy Management</h3>
-                        <p>Manage all your restaurant operations in one place with our intuitive interface.</p>
-                    </div>
-
-                    <div className="feature-card">
-                        <img 
-                            src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=300&h=300&fit=crop" 
-                            alt="Fast Delivery"
-                            onError={(e) => e.target.src = "https://via.placeholder.com/300x300?text=Fast+Delivery"}
-                        />
-                        <h3>Quick Orders</h3>
-                        <p>Process orders quickly and efficiently to keep your customers satisfied.</p>
-                    </div>
-
-                    <div className="feature-card">
-                        <img 
-                            src="https://images.unsplash.com/photo-1514432324607-2e467f4af445?w=300&h=300&fit=crop" 
-                            alt="Analytics"
-                            onError={(e) => e.target.src = "https://via.placeholder.com/300x300?text=Analytics"}
-                        />
-                        <h3>Smart Analytics</h3>
-                        <p>Track sales, inventory, and customer preferences with real-time analytics.</p>
-                    </div>
-
-                    <div className="feature-card">
-                        <img 
-                            src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=300&fit=crop" 
-                            alt="24/7 Support"
-                            onError={(e) => e.target.src = "https://via.placeholder.com/300x300?text=Support"}
-                        />
-                        <h3>24/7 Support</h3>
-                        <p>Our dedicated support team is always available to help you succeed.</p>
-                    </div>
-                </div>
-            </section>
-
-            {/* Call to Action Section */}
-            <section className="cta-section">
-                <h2>Ready to Transform Your Restaurant?</h2>
-                <p>Join thousands of restaurants already using FoodHub to grow their business.</p>
-                <div className="cta-buttons">
-                    <button className="btn-primary">Get Started</button>
-                    <button className="btn-secondary">Learn More</button>
-                </div>
-            </section>
+function Home() {
+  return (
+    <div className="container">
+      <div style={{textAlign: 'center', marginBottom: '40px'}}>
+        <h1>Welcome to Muniandi Villas</h1>
+        <h2 style={{color: '#2c5530'}}>Authentic Veg & Non-Veg Cuisine</h2>
+      </div>
+      
+      <div className="grid">
+        <div className="card">
+          <img src="https://tse3.mm.bing.net/th/id/OIP.28rrGkc7vZ8pZk2OBI_Z8QHaEw?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Restaurant" style={{width: '100%', borderRadius: '4px'}} />
+          <h3>Traditional Ambiance</h3>
+          <p>Experience authentic South Indian dining in our traditional setting with modern comfort.</p>
         </div>
-    );
-};
+        
+        <div className="card">
+          <img src="https://c8.alamy.com/comp/JK7TB1/selection-display-of-salads-at-a-luxury-hotel-restaurant-buffet-bar-JK7TB1.jpg" alt="Fresh Food" style={{width: '100%', borderRadius: '4px'}} />
+          <h3>Fresh Ingredients</h3>
+          <p>We use only the freshest ingredients sourced locally to prepare our delicious meals.</p>
+        </div>
+        
+        <div className="card">
+          <img src="https://tse2.mm.bing.net/th/id/OIP.buu8nfYs3Sm44TnM191dtgHaLH?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Chefs" style={{width: '100%', borderRadius: '4px'}} />
+          <h3>Expert Chefs</h3>
+          <p>Our experienced chefs bring you authentic flavors with a perfect blend of spices.</p>
+        </div>
+      </div>
+      
+      <div style={{textAlign: 'center', marginTop: '40px'}}>
+        <Link to="/login" className="btn" style={{textDecoration: 'none', marginRight: '10px'}}>Login</Link>
+        <Link to="/items" className="btn" style={{textDecoration: 'none'}}>Order Now</Link>
+      </div>
+    </div>
+  );
+}
 
 export default Home;

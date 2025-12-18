@@ -1,56 +1,103 @@
-.App {
-  text-align: left;
-}
-
-header {
-  background-color: #333;
-  padding: 15px 20px;
+.navbar {
+  background-color: #2c5530;
+  padding: 15px;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-header a {
+.navbar a {
   color: white;
   text-decoration: none;
-  margin: 0 10px;
-  font-weight: 500;
+  margin: 0 8px;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
-header a:hover {
-  color: #667eea;
-  transition: 0.3s;
+.navbar a:hover {
+  background-color: rgba(255,255,255,0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btn {
+  background-color: #2c5530;
   color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:hover {
+  background-color: #1e3a21;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.search-container {
+  padding: 30px;
+}
+
+.search-input {
+  width: 60%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.search-results {
+  margin-top: 20px;
+}
+
+.search-item {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
 }

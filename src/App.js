@@ -1,32 +1,37 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState, createContext } from 'react';
+
+export const CartContext = createContext();
 
 function App() {
-  let [data,setData] = useState([]);
-  useEffect(()=>{
-      const fetchResponse = async()=>{
-      try{
-        const response = await fetch("http://localhost:3001/Restaurant.json");
-        const da =await response.json();
-        setData(da);
-      }catch(err){
-        console.log("Error fetching data:", err);
+  const [cartItems, setCartItems] = useState([]);
+  
+  const addToCart = (item) => {
+    setCartItems(prev => {
+      const existing = prev.find(p => p.id === item.id);
+      if (existing) {
+        return prev.map(p => p.id === item.id ? {...p, quantity: p.quantity + 1} : p);
       }
-    };
-    fetchResponse();
-  },[]);
+      return [...prev, {...item, quantity: 1}];
+    });
+  };
   return (
     <div className="App">
-      <header>
-        <NavLink to={"/login"}>login</NavLink> |{" "}
-        <NavLink to={"/"}>Home</NavLink> |{" "}
-        <NavLink to={"/search"}>Search</NavLink> |{" "}
-        <NavLink to={"/restaurant"}>Restaurant</NavLink> |{" "}
-        <NavLink to={"/cart"}>Cart</NavLink> |{""}
-        <NavLink to={"/help"}>Help</NavLink> |{" "}
+      <header className="navbar">
+        <h2 style={{color: 'white', margin: 0}}>Muniandi Villas (Veg & Non - Veg)</h2>
+        <nav style={{marginTop: '10px'}}>
+          <NavLink to={"/"}>Home</NavLink> |
+          <NavLink to={"/about"}>About</NavLink> |
+          <NavLink to={"/items"}>Items</NavLink> |
+          <NavLink to={"/cart"}>Cart</NavLink> |
+          <NavLink to={"/login"}>Login</NavLink> |
+          <NavLink to={"/admin"}>Admin</NavLink>
+        </nav>
       </header>
-      <Outlet context={{data}}></Outlet>
+      <CartContext.Provider value={{cartItems, addToCart, setCartItems}}>
+        <Outlet />
+      </CartContext.Provider>
     </div>
   );
 }

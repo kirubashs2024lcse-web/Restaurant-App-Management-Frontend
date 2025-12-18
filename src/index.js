@@ -6,10 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Login from './page/Login';
 import Home from './page/Home';
+import About from './page/About';
+import Items from './page/Items';
 import Cart from './page/Cart';
-import ResturantMenu from './page/Restaurant';
-import Search from './page/Search';
-import Help from './page/Help';
+import Admin from './page/Admin';
+import ErrorBoundary from './components/ErrorBoundary';
 
 
 
@@ -18,30 +19,31 @@ const a =createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <div style={{padding: '20px', textAlign: 'center'}}><h2>Page Not Found</h2><p>The page you're looking for doesn't exist.</p><a href="/">Go Home</a></div>,
     children: [
       {
         path: "/",
         element: <Home />,
       },
       {
-        path: "/login",
-        element: <Login />,
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/items",
+        element: <Items />,
       },
       {
         path: "/cart",
         element: <Cart />,
       },
       {
-        path: "/restaurant/:id",
-        element: <ResturantMenu />,
+        path: "/login",
+        element: <Login />,
       },
       {
-        path: "/search",
-        element: <Search />,
-      },
-      {
-        path: "/help",
-        element: <Help />,
+        path: "/admin",
+        element: <Admin />,
       },
     ],
   },
@@ -49,7 +51,9 @@ const a =createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={a} />
+    <ErrorBoundary>
+      <RouterProvider router={a} />
+    </ErrorBoundary>
   </React.StrictMode>
 );
 
