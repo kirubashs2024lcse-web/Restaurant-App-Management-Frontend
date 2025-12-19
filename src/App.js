@@ -17,6 +17,7 @@ function App() {
       return [...prev, {...item, quantity: 1}];
     });
   };
+
   return (
     <div className="App">
       <Header />
@@ -26,5 +27,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
